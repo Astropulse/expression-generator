@@ -79,6 +79,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Generate facial expressions with RetroDiffusion")
     parser.add_argument("-i", "--input", required=True, help="input image path")
     parser.add_argument("-o", "--output", default="outputs", help="output directory")
+    parser.add_argument("-e", "--expression", help="generate only this expression string")
     args = parser.parse_args()
 
     api_key = load_api_key()
@@ -89,10 +90,11 @@ def main() -> None:
     img_b64 = img_to_b64(args.input)
     headers = {"X-RD-Token": api_key}
 
-    with ThreadPoolExecutor(max_workers=len(EXPRESSIONS)) as pool:
-        for result in pool.map(lambda e: worker(e, img_b64, args.output, headers), EXPRESSIONS):
-            print(result)
+    expressions_to_use = [args.expression] if args.expression else EXPRESSIONS
 
+    with ThreadPoolExecutor(max_workers=len(expressions_to_use)) as pool:
+        for result in pool.map(lambda e: worker(e, img_b64, args.output, headers), expressions_to_use):
+            print(result)
 
 if __name__ == "__main__":
     main()
