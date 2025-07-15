@@ -1,6 +1,7 @@
 # RetroDiffusion Expression Generator
 
 A tiny helper that creates a bunch of facial expressions from a single input image.
+
 <img width="1344" height="1024" alt="Sheet" src="https://github.com/user-attachments/assets/48e81145-a053-4a72-9104-ac3c4ba8e933" />
 
 ---
@@ -39,7 +40,13 @@ Flag	What it does
 
 Example:
 
+```
 python generate.py -i face.png -o outputs
+```
+**or for single expression**
+```
+python generate.py -i face.png -o outputs -e "rolling their eyes"
+```
 
 The folder will end up with all the expression files:
 
