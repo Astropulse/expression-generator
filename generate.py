@@ -18,7 +18,7 @@ PREFIX = "make the character"
 EXPRESSIONS = [
     "smile", "laughing", "crying", "angry", "surprised",
     "confused", "sad", "grinning with teeth", "disgusted", "pouting",
-    "scared", "looking down in shape", "annoyed", "sleeping", "excited", "with a neutral expression"
+    "scared", "looking down in shame", "annoyed", "eyes closed", "excited", "with a neutral expression"
 ]
 
 
